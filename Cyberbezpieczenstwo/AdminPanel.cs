@@ -47,5 +47,30 @@ namespace Cyberbezpieczenstwo
             dataHandler.UpdateData(UpdatedAccounts);
            
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            var Accounts = dataHandler.GetAccounts();
+            var newAccount = new Account();
+
+            newAccount.Id = Accounts.OrderByDescending(x => x.Id).First().Id + 1;
+            newAccount.Login = textBox2.Text;
+            newAccount.Password = textBox1.Text;
+            newAccount.Admin = false;
+            newAccount.Locked = false;
+            newAccount.PassChange = DateTime.Now;
+            Accounts.Add(newAccount);
+            dataHandler.UpdateData(Accounts);
+            dataGridView1.DataSource = dataHandler.GetAccounts();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            var Accounts = dataHandler.GetAccounts();
+
+            Accounts.Remove(Accounts.Where(x => x.Id.ToString() == textBox3.Text).First());
+            dataHandler.UpdateData(Accounts);
+            dataGridView1.DataSource = dataHandler.GetAccounts();
+        }
     }
 }

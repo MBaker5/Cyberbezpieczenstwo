@@ -16,26 +16,30 @@ namespace Cyberbezpieczenstwo
                         if(CurAccount.Count() == 0) { label3.Text = "b³edny login lub has³o"; }
                         else 
                         {
-                            if (CurAccount.First().Admin)
-                            {
-                                AdminPanel AP = new AdminPanel(CurAccount.First());
-                                AP.Location = this.Location;
-                                AP.StartPosition = FormStartPosition.Manual;
-                                AP.FormClosing += delegate { this.Show(); };
-                                AP.Show();
-                            } 
-                            else 
-                            {
-                                UserPanel UP = new UserPanel(CurAccount.First());
-                                UP.Location = this.Location;
-                                UP.StartPosition = FormStartPosition.Manual;
-                                UP.FormClosing += delegate { this.Show(); };
-                                UP.Show();
-                            }
+                if (CurAccount.First().Locked) { label3.Text = "To konto jest zablokowane!"; }
+                else
+                {
+                    if (CurAccount.First().Admin)
+                    {
+                        AdminPanel AP = new AdminPanel(CurAccount.First());
+                        AP.Location = this.Location;
+                        AP.StartPosition = FormStartPosition.Manual;
+                        AP.FormClosing += delegate { this.Show(); };
+                        AP.Show();
+                    }
+                    else
+                    {
+                        UserPanel UP = new UserPanel(CurAccount.First());
+                        UP.Location = this.Location;
+                        UP.StartPosition = FormStartPosition.Manual;
+                        UP.FormClosing += delegate { this.Show(); };
+                        UP.Show();
+                    }
 
-                            this.Hide();
-                            textBox1.Text = "";
-                            textBox2.Text = "";
+                    this.Hide();
+                    textBox1.Text = "";
+                    textBox2.Text = "";
+                }
                         }
          
         }
