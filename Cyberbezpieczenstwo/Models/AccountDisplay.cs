@@ -6,15 +6,10 @@ using System.Threading.Tasks;
 
 namespace Cyberbezpieczenstwo.Models
 {
-    public class Account
+    internal class AccountDisplay
     {
         public int Id { get; set; }
         public string Login { get; set; }
-        public string Password { get; set; }
-        public bool Admin { get; set; }
-        public bool PasswordRestrictions { get; set; }
         public bool Locked { get; set; }
-        public DateTime PassChange { get; set; }
-
     }
 }

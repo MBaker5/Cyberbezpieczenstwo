@@ -2,9 +2,9 @@ using Cyberbezpieczenstwo.Classes;
 
 namespace Cyberbezpieczenstwo
 {
-    public partial class Form1 : Form
+    public partial class MainPage : Form
     {
-        public Form1()
+        public MainPage()
         {
             InitializeComponent();
         }
@@ -12,16 +12,16 @@ namespace Cyberbezpieczenstwo
         private void button1_Click(object sender, EventArgs e)
         {
                         var dataHandler = new DataHandler();
-                        var CurAccount = dataHandler.GetAccounts().Where(x=>x.Login==textBox2.Text && x.Password==textBox1.Text);
-                        if(CurAccount.Count() == 0) { label3.Text = "b³edny login lub has³o"; }
+                        var CurAccount = dataHandler.GetAccounts().Where(x=>x.Login==LoginTxtbx.Text && x.Password==passwordTxtbx.Text);
+                        if(CurAccount.Count() == 0) { KomunikatLbl.Text = "b³edny login lub has³o"; }
                         else 
                         {
-                if (CurAccount.First().Locked) { label3.Text = "To konto jest zablokowane!"; }
+                if (CurAccount.First().Locked) { KomunikatLbl.Text = "To konto jest zablokowane!"; }
                 else
                 {
                     if (CurAccount.First().Admin)
                     {
-                        AdminPanel AP = new AdminPanel(CurAccount.First());
+                        AdminPage AP = new AdminPage(CurAccount.First());
                         AP.Location = this.Location;
                         AP.StartPosition = FormStartPosition.Manual;
                         AP.FormClosing += delegate { this.Show(); };
@@ -37,8 +37,8 @@ namespace Cyberbezpieczenstwo
                     }
 
                     this.Hide();
-                    textBox1.Text = "";
-                    textBox2.Text = "";
+                    passwordTxtbx.Text = "";
+                    LoginTxtbx.Text = "";
                 }
                         }
          
@@ -47,6 +47,11 @@ namespace Cyberbezpieczenstwo
         private void label3_Click(object sender, EventArgs e)
         { 
            
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

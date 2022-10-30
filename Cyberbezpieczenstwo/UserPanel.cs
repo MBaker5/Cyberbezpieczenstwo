@@ -19,7 +19,9 @@ namespace Cyberbezpieczenstwo
         {
             user = User;
             InitializeComponent();
-            this.Welcome.Text = "Witaj " + User.Login;
+            if((DateTime.Now - user.PassChange).Days>=0) { WelcomeLbl.Text = "Wymagana zmiana hasla"; }
+            else { this.WelcomeLbl.Text = "Witaj " + User.Login; }
+            
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -28,18 +30,38 @@ namespace Cyberbezpieczenstwo
         }
 
         private void button2_Click(object sender, EventArgs e)
-        {
-            if (textBox2.Text != this.user.Password){ Welcome.Text = "bledne hasło!"; }
-            if (textBox2.Text == this.user.Password)
+        {   
+            if (oldpassTxtbx.Text != this.user.Password){ WelcomeLbl.Text = "bledne hasło!"; }
+            if (oldpassTxtbx.Text == newpassTxtbx.Text) { WelcomeLbl.Text = "hasło musi sie roznic od poprzedniego!"; }
+            else
             {
-                var datahandler = new DataHandler();
-                var Accounts = datahandler.GetAccounts();
-                Accounts.Where(x=>x.Id==this.user.Id).FirstOrDefault().Password= textBox1.Text;
-                datahandler.UpdateData(Accounts);
-                Welcome.Text = "haslo zmienione";
-                textBox1.Text = "";
-                textBox2.Text = "";
+                if (oldpassTxtbx.Text == this.user.Password)
+                {
+                    if (newpassTxtbx.Text == newpassrepeatTxtbx.Text)
+                    {
+                        var datahandler = new DataHandler();
+                        if (datahandler.CheckPasswordRestriction(newpassTxtbx.Text))
+                        {
+                            var Accounts = datahandler.GetAccounts();
+                            Accounts.Where(x => x.Id == this.user.Id).FirstOrDefault().Password = newpassTxtbx.Text;
+                            datahandler.UpdateData(Accounts);
+                            WelcomeLbl.Text = "haslo zmienione";
+                            newpassTxtbx.Text = "";
+                            oldpassTxtbx.Text = "";
+                        }
+                        else
+                        { WelcomeLbl.Text = "bedny fomrat hasla"; }
+                    }
+                    else
+                    { WelcomeLbl.Text = "Nowe hasło zostało zle powtorzone "; }
+
+                }
             }
+        }
+
+        private void DoSthBtn_Click(object sender, EventArgs e)
+        {
+            WelcomeLbl.Text = "Robie cos";
         }
     }
 }

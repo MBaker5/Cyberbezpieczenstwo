@@ -10,11 +10,12 @@ namespace Cyberbezpieczenstwo.Classes
     internal class DataHandler
     {
         public string DataLoc = AppDomain.CurrentDomain.BaseDirectory + "data.txt";
+        public string DataLocAlt = Path.Combine(Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.Parent.Parent.FullName,"data.txt");
 
         public List<Account> GetAccounts() 
         {
             var lines = new List<string>();
-            lines = File.ReadAllLines(DataLoc).ToList();
+            lines = File.ReadAllLines(DataLocAlt).ToList();
             var Accounts = new List<Account>();
            
             foreach(var line in lines) 
@@ -26,8 +27,9 @@ namespace Cyberbezpieczenstwo.Classes
                 Account.Login = splitedLine[1];
                 Account.Password = splitedLine[2];
                 Account.Admin = bool.Parse(splitedLine[3]);
-                Account.Locked = bool.Parse(splitedLine[4]);
-                Account.PassChange =  DateTime.Parse(splitedLine[5]);
+                Account.PasswordRestrictions = bool.Parse(splitedLine[4]);
+                Account.Locked = bool.Parse(splitedLine[5]);
+                Account.PassChange =  DateTime.Parse(splitedLine[6]);
 
                 Accounts.Add(Account);
             }
@@ -42,14 +44,45 @@ namespace Cyberbezpieczenstwo.Classes
             for(int i = 0; i<AccList.Count(); i++) 
             {
                 Lines[i] = AccList[i].Id.ToString() + ";" + AccList[i].Login + ";" + AccList[i].Password + ";"
-                + AccList[i].Admin.ToString() + ";" + AccList[i].Locked.ToString() + ";" + AccList[i].PassChange.ToString();
+                + AccList[i].Admin.ToString() + ";" + AccList[i].PasswordRestrictions.ToString() + ";" + AccList[i].Locked.ToString() + ";" + AccList[i].PassChange.ToString();
             }
 
-            File.WriteAllLines(DataLoc, Lines);
+            File.WriteAllLines(DataLocAlt, Lines);
         }
-        
+
+        public bool CheckNewLogin(string login, string loginold)
+        {
+            var accounts = GetAccounts();
+            foreach(var acc in accounts)
+            {
+                if (acc.Login == login && acc.Login != loginold|| acc.Login=="") { return false; }
+            }
+
+            return true;
+        }
+
+        public int CountDays( DateTime dataDoResetu) 
+        {
+            var teraz = new DateTime();
+            
+            return int.Parse(teraz.Subtract(dataDoResetu).Days.ToString());
+        }
 
 
+        public bool CheckNewPassword(string password)
+        {
+            if (password.Length>2)
+            { return true; }
+            else
+            { return false; }
+        }
+        public bool CheckPasswordRestriction(string password) 
+        {
+            if(password.Distinct().Count() == password.Count())
+                { return true; }
+            else 
+                { return false; }
+        }
 
     }
 }

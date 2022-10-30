@@ -15,13 +15,15 @@ namespace Cyberbezpieczenstwo
     public partial class AdminPanel : Form
     {
         DataHandler dataHandler;
-        Account Admin;
+        Account admin;
+        public List<Account> accounts;
         public AdminPanel(Account Admin)
         {
             dataHandler = new DataHandler();
-            Admin = Admin;
+            admin = Admin;
             InitializeComponent();
-            dataGridView1.DataSource = dataHandler.GetAccounts();
+            accounts = dataHandler.GetAccounts();
+            AccoutsGV.DataSource = accounts;
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -31,46 +33,75 @@ namespace Cyberbezpieczenstwo
 
         private void button1_Click(object sender, EventArgs e)
         {
-            var UpdatedAccounts = new List<Account>();
-            for (int i = 0; i < dataGridView1.RowCount; i++)
+            /*
+            if(textBox4.Text== admin.Password) 
             {
-                var Account = new Account();
+                var UpdatedAccounts = new List<Account>();
+                for (int i = 0; i < AccoutsGV.RowCount; i++)
+                {
+                    var Account = new Account();
 
-                Account.Id = int.Parse(dataGridView1.Rows[i].Cells[0].Value.ToString());
-                Account.Login = dataGridView1.Rows[i].Cells[1].Value.ToString();
-                Account.Password = dataGridView1.Rows[i].Cells[2].Value.ToString();
-                Account.Admin = bool.Parse(dataGridView1.Rows[i].Cells[3].Value.ToString());
-                Account.Locked = bool.Parse(dataGridView1.Rows[i].Cells[4].Value.ToString());
-                Account.PassChange = DateTime.Parse(dataGridView1.Rows[i].Cells[5].Value.ToString());
-                UpdatedAccounts.Add(Account);
+                    Account.Id = int.Parse(AccoutsGV.Rows[i].Cells[0].Value.ToString());
+                    Account.Login = AccoutsGV.Rows[i].Cells[1].Value.ToString();
+                    Account.Password = AccoutsGV.Rows[i].Cells[2].Value.ToString();
+                    Account.Admin = bool.Parse(AccoutsGV.Rows[i].Cells[3].Value.ToString());
+                    Account.PasswordRestriction = bool.Parse(AccoutsGV.Rows[i].Cells[4].Value.ToString());
+                    Account.Locked = bool.Parse(AccoutsGV.Rows[i].Cells[5].Value.ToString());
+                    Account.PassChange = DateTime.Parse(AccoutsGV.Rows[i].Cells[5].Value.ToString());
+                    UpdatedAccounts.Add(Account);
+                }
+                label4.Text = "zapisano zmiany";
+                dataHandler.UpdateData(UpdatedAccounts);
             }
-            dataHandler.UpdateData(UpdatedAccounts);
-           
+            else 
+            { label4.Text = "podaj poprawne hasło by zapisac zmiany"; }
+            
+           */
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            var Accounts = dataHandler.GetAccounts();
-            var newAccount = new Account();
+            if (dataHandler.CheckNewLogin(NewUserLoginTxtb.Text,""))
+            {
+                if (dataHandler.CheckPasswordRestriction(NewUserPassTxtb.Text))
+                {
+                    var Accounts = dataHandler.GetAccounts();
+                    var newAccount = new Account();
 
-            newAccount.Id = Accounts.OrderByDescending(x => x.Id).First().Id + 1;
-            newAccount.Login = textBox2.Text;
-            newAccount.Password = textBox1.Text;
-            newAccount.Admin = false;
-            newAccount.Locked = false;
-            newAccount.PassChange = DateTime.Now;
-            Accounts.Add(newAccount);
-            dataHandler.UpdateData(Accounts);
-            dataGridView1.DataSource = dataHandler.GetAccounts();
+                    newAccount.Id = Accounts.OrderByDescending(x => x.Id).First().Id + 1;
+                    newAccount.Login = NewUserLoginTxtb.Text;
+                    newAccount.Password = NewUserPassTxtb.Text;
+                    newAccount.Admin = false;
+                    newAccount.PasswordRestrictions = false;
+                    newAccount.Locked = false;
+                    newAccount.PassChange = DateTime.Now;
+                    Accounts.Add(newAccount);
+                    dataHandler.UpdateData(Accounts);
+                    AccoutsGV.DataSource = dataHandler.GetAccounts();
+                    label4.Text = "";
+                }
+                else
+                { label4.Text = "hasło jest zbyt krotkie"; }
+            }
+            else
+            { label4.Text = "Istieje juz uzytkownik o takiej nazwie"; }
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            var Accounts = dataHandler.GetAccounts();
+            EditUser EU = new EditUser(accounts.Where(x=>x.Id == int.Parse(EditUserIDTxtb.Text)).First());
+            EU.Location = this.Location;
+            EU.StartPosition = FormStartPosition.Manual;
+            EU.FormClosing += delegate { this.Show(); this.accounts = dataHandler.GetAccounts(); this.AccoutsGV.DataSource = this.accounts; };
+            EU.Show();
+            this.Hide();
+          
+            //accounts=dataHandler.GetAccounts()
+        }
 
-            Accounts.Remove(Accounts.Where(x => x.Id.ToString() == textBox3.Text).First());
-            dataHandler.UpdateData(Accounts);
-            dataGridView1.DataSource = dataHandler.GetAccounts();
+        private void label5_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
