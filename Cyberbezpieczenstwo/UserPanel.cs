@@ -42,6 +42,8 @@ namespace Cyberbezpieczenstwo
                         var datahandler = new DataHandler();
                         if (datahandler.CheckPasswordRestriction(newpassTxtbx.Text))
                         {
+                            var log = new LogHandler();
+                            log.Log(user, "zmienil swoje haslo");
                             var Accounts = datahandler.GetAccounts();
                             Accounts.Where(x => x.Id == this.user.Id).FirstOrDefault().Password = newpassTxtbx.Text;
                             datahandler.UpdateData(Accounts);

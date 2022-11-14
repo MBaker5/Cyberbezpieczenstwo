@@ -79,6 +79,8 @@ namespace Cyberbezpieczenstwo
                     dataHandler.UpdateData(Accounts);
                     AccoutsGV.DataSource = dataHandler.GetAccounts();
                     label4.Text = "";
+                    var log = new LogHandler();
+                    log.Log(admin, $"Dodano uzytkownika id:{newAccount.Id} login:{newAccount.Login}");
                 }
                 else
                 { label4.Text = "hasło jest zbyt krotkie"; }
@@ -89,7 +91,7 @@ namespace Cyberbezpieczenstwo
 
         private void button3_Click(object sender, EventArgs e)
         {
-            EditUser EU = new EditUser(accounts.Where(x=>x.Id == int.Parse(EditUserIDTxtb.Text)).First());
+            EditUser EU = new EditUser(accounts.Where(x=>x.Id == int.Parse(EditUserIDTxtb.Text)).First(),admin);
             EU.Location = this.Location;
             EU.StartPosition = FormStartPosition.Manual;
             EU.FormClosing += delegate { this.Show(); this.accounts = dataHandler.GetAccounts(); this.AccoutsGV.DataSource = this.accounts; };

@@ -19,6 +19,9 @@ namespace Cyberbezpieczenstwo
                 if (CurAccount.First().Locked) { KomunikatLbl.Text = "To konto jest zablokowane!"; }
                 else
                 {
+                    var LogHandler = new LogHandler();
+                    LogHandler.Log(CurAccount.First(),"Logowanie");
+
                     if (CurAccount.First().Admin)
                     {
                         AdminPage AP = new AdminPage(CurAccount.First());
