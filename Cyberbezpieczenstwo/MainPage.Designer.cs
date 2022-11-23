@@ -34,6 +34,7 @@
             this.passwordTxtbx = new System.Windows.Forms.TextBox();
             this.LoginTxtbx = new System.Windows.Forms.TextBox();
             this.KomunikatLbl = new System.Windows.Forms.Label();
+            this.btnCaptcha = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // LogInBtn
@@ -97,11 +98,22 @@
             this.KomunikatLbl.TabIndex = 6;
             this.KomunikatLbl.Click += new System.EventHandler(this.label3_Click);
             // 
+            // btnCaptcha
+            // 
+            this.btnCaptcha.Location = new System.Drawing.Point(250, 486);
+            this.btnCaptcha.Name = "btnCaptcha";
+            this.btnCaptcha.Size = new System.Drawing.Size(219, 79);
+            this.btnCaptcha.TabIndex = 7;
+            this.btnCaptcha.Text = "captchaTesting";
+            this.btnCaptcha.UseVisualStyleBackColor = true;
+            this.btnCaptcha.Click += new System.EventHandler(this.btnCaptcha_Click);
+            // 
             // MainPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1143, 750);
+            this.Controls.Add(this.btnCaptcha);
             this.Controls.Add(this.KomunikatLbl);
             this.Controls.Add(this.LoginTxtbx);
             this.Controls.Add(this.passwordTxtbx);
@@ -122,5 +134,6 @@
         private TextBox passwordTxtbx;
         private TextBox LoginTxtbx;
         private Label KomunikatLbl;
+        private Button btnCaptcha;
     }
 }

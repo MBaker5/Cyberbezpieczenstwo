@@ -86,5 +86,15 @@ namespace Cyberbezpieczenstwo
         {
 
         }
+
+        private void btnCaptcha_Click(object sender, EventArgs e)
+        {
+            CaptchaForm CP = new CaptchaForm();
+            CP.Location = this.Location;
+            CP.StartPosition = FormStartPosition.Manual;
+            CP.FormClosing += delegate { this.Show(); };
+            CP.Show();
+            this.Hide();
+        }
     }
 }
