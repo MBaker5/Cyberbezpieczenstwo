@@ -40,12 +40,13 @@
             this.PassChangeTimerInput = new System.Windows.Forms.NumericUpDown();
             this.Komunikat = new System.Windows.Forms.Label();
             this.DeleteUserBtn = new System.Windows.Forms.Button();
+            this.OneTimePassBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.PassChangeTimerInput)).BeginInit();
             this.SuspendLayout();
             // 
             // SaveChangesBtn
             // 
-            this.SaveChangesBtn.Location = new System.Drawing.Point(308, 313);
+            this.SaveChangesBtn.Location = new System.Drawing.Point(307, 335);
             this.SaveChangesBtn.Name = "SaveChangesBtn";
             this.SaveChangesBtn.Size = new System.Drawing.Size(200, 50);
             this.SaveChangesBtn.TabIndex = 0;
@@ -156,11 +157,22 @@
             this.DeleteUserBtn.UseVisualStyleBackColor = true;
             this.DeleteUserBtn.Click += new System.EventHandler(this.button1_Click);
             // 
+            // OneTimePassBtn
+            // 
+            this.OneTimePassBtn.Location = new System.Drawing.Point(307, 279);
+            this.OneTimePassBtn.Name = "OneTimePassBtn";
+            this.OneTimePassBtn.Size = new System.Drawing.Size(200, 50);
+            this.OneTimePassBtn.TabIndex = 14;
+            this.OneTimePassBtn.Text = "Nadaj Hasło Jednorazowe";
+            this.OneTimePassBtn.UseVisualStyleBackColor = true;
+            this.OneTimePassBtn.Click += new System.EventHandler(this.OneTimePassBtn_Click);
+            // 
             // EditUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.OneTimePassBtn);
             this.Controls.Add(this.DeleteUserBtn);
             this.Controls.Add(this.Komunikat);
             this.Controls.Add(this.PassChangeTimerInput);
@@ -195,5 +207,6 @@
         private NumericUpDown PassChangeTimerInput;
         private Label Komunikat;
         private Button DeleteUserBtn;
+        private Button OneTimePassBtn;
     }
 }

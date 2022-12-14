@@ -84,5 +84,15 @@ namespace Cyberbezpieczenstwo.Classes
                 { return false; }
         }
 
+        public double CalculateOneTimePassword(int loginLen) 
+        {
+            var rnd = new Random();
+            return Math.Log(loginLen, rnd.Next(250));
+        }
+
+
+
+
+
     }
 }

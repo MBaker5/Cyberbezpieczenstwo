@@ -106,5 +106,26 @@ namespace Cyberbezpieczenstwo
             dataHandler.UpdateData(Accounts);
             this.Close();
         }
+
+        private void OneTimePassBtn_Click(object sender, EventArgs e)
+        {
+            var dataHandler = new DataHandler();
+            var Accounts = dataHandler.GetAccounts();
+            var UpdatedAccount = new Account();
+            var log = new LogHandler();
+            log.Log(admin, $"uzytkownik:{user.Id} login:{user.Login} otrzymal nowe jednorazowe haslo");
+         
+            UpdatedAccount.Id = user.Id;
+            UpdatedAccount.Login = LoginTxtb.Text;
+            UpdatedAccount.Password = dataHandler.CalculateOneTimePassword(user.Login.Length).ToString();
+            UpdatedAccount.Admin = AdminChcbx.Checked;
+            UpdatedAccount.PasswordRestrictions = PassRestChcbx.Checked;
+            UpdatedAccount.Locked = AccLockedChcbx.Checked;
+            UpdatedAccount.PassChange = user.PassChange = DateTime.Now;
+            Accounts[Accounts.FindIndex(ac => ac.Id == UpdatedAccount.Id)] = UpdatedAccount;
+            //Accounts.Add(UpdatedAccount);
+            dataHandler.UpdateData(Accounts);
+            this.Close();
+        }
     }
 }
