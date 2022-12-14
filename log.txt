@@ -7,3 +7,6 @@
 1;Admin;Zmieniono haslo uzytkownika id:6 login:Test;14.11.2022 21:20:00
 1;Admin;Uzytkownik id:6 login:Test zostal zablokowany;14.11.2022 21:20:00
 1;Admin;Logowanie;22.11.2022 18:07:55
+1;Admin;Logowanie;14.12.2022 19:32:55
+6;Test;Logowanie;14.12.2022 19:34:50
+6;Test;zmienil swoje haslo;14.12.2022 19:35:07

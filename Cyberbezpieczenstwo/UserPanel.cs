@@ -49,6 +49,7 @@ namespace Cyberbezpieczenstwo
                             datahandler.UpdateData(Accounts);
                             WelcomeLbl.Text = "haslo zmienione";
                             newpassTxtbx.Text = "";
+                            newpassrepeatTxtbx.Text = "";
                             oldpassTxtbx.Text = "";
                         }
                         else
