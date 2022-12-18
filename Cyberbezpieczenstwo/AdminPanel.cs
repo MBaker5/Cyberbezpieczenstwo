@@ -64,14 +64,23 @@ namespace Cyberbezpieczenstwo
         {
             if (dataHandler.CheckNewLogin(NewUserLoginTxtb.Text,""))
             {
-                if (dataHandler.CheckPasswordRestriction(NewUserPassTxtb.Text))
+                if (GenOneTimePassChckBX.Checked||dataHandler.CheckPasswordRestriction(NewUserPassTxtb.Text))
                 {
+                    
                     var Accounts = dataHandler.GetAccounts();
                     var newAccount = new Account();
 
                     newAccount.Id = Accounts.OrderByDescending(x => x.Id).First().Id + 1;
                     newAccount.Login = NewUserLoginTxtb.Text;
-                    newAccount.Password = NewUserPassTxtb.Text;
+                    if (GenOneTimePassChckBX.Checked)
+                    {
+                        newAccount.Password = dataHandler.CalculateOneTimePassword(newAccount.Login.Length).ToString();
+                    }
+                    else
+                    {
+                        newAccount.Password = NewUserPassTxtb.Text;
+                    }
+                    
                     newAccount.Admin = false;
                     newAccount.PasswordRestrictions = false;
                     newAccount.Locked = false;

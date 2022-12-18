@@ -48,6 +48,7 @@
             this.EditUserIDTxtb = new System.Windows.Forms.TextBox();
             this.UserToEditLbl = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.GenOneTimePassChckBX = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.AccoutsGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.accountBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -142,14 +143,14 @@
             // 
             // NewUserPassTxtb
             // 
-            this.NewUserPassTxtb.Location = new System.Drawing.Point(12, 339);
+            this.NewUserPassTxtb.Location = new System.Drawing.Point(12, 321);
             this.NewUserPassTxtb.Name = "NewUserPassTxtb";
             this.NewUserPassTxtb.Size = new System.Drawing.Size(150, 23);
             this.NewUserPassTxtb.TabIndex = 2;
             // 
             // NewUserLoginTxtb
             // 
-            this.NewUserLoginTxtb.Location = new System.Drawing.Point(12, 295);
+            this.NewUserLoginTxtb.Location = new System.Drawing.Point(12, 275);
             this.NewUserLoginTxtb.Name = "NewUserLoginTxtb";
             this.NewUserLoginTxtb.Size = new System.Drawing.Size(150, 23);
             this.NewUserLoginTxtb.TabIndex = 3;
@@ -168,7 +169,7 @@
             // NewUserPassLbl
             // 
             this.NewUserPassLbl.AutoSize = true;
-            this.NewUserPassLbl.Location = new System.Drawing.Point(12, 321);
+            this.NewUserPassLbl.Location = new System.Drawing.Point(12, 301);
             this.NewUserPassLbl.Name = "NewUserPassLbl";
             this.NewUserPassLbl.Size = new System.Drawing.Size(57, 15);
             this.NewUserPassLbl.TabIndex = 5;
@@ -177,7 +178,7 @@
             // NewUserLoginLbl
             // 
             this.NewUserLoginLbl.AutoSize = true;
-            this.NewUserLoginLbl.Location = new System.Drawing.Point(12, 277);
+            this.NewUserLoginLbl.Location = new System.Drawing.Point(12, 257);
             this.NewUserLoginLbl.Name = "NewUserLoginLbl";
             this.NewUserLoginLbl.Size = new System.Drawing.Size(34, 15);
             this.NewUserLoginLbl.TabIndex = 6;
@@ -219,11 +220,23 @@
             this.label4.Size = new System.Drawing.Size(0, 28);
             this.label4.TabIndex = 10;
             // 
+            // GenOneTimePassChckBX
+            // 
+            this.GenOneTimePassChckBX.AutoSize = true;
+            this.GenOneTimePassChckBX.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.GenOneTimePassChckBX.Location = new System.Drawing.Point(12, 350);
+            this.GenOneTimePassChckBX.Name = "GenOneTimePassChckBX";
+            this.GenOneTimePassChckBX.Size = new System.Drawing.Size(219, 24);
+            this.GenOneTimePassChckBX.TabIndex = 11;
+            this.GenOneTimePassChckBX.Text = "Wygeneruj hasło jednorazwe";
+            this.GenOneTimePassChckBX.UseVisualStyleBackColor = true;
+            // 
             // AdminPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.GenOneTimePassChckBX);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.UserToEditLbl);
             this.Controls.Add(this.EditUserIDTxtb);
