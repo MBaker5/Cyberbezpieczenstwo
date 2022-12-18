@@ -45,7 +45,7 @@ namespace Cyberbezpieczenstwo
                             var log = new LogHandler();
                             log.Log(user, "zmienil swoje haslo");
                             var Accounts = datahandler.GetAccounts();
-                            Accounts.Where(x => x.Id == this.user.Id).FirstOrDefault().Password = newpassTxtbx.Text;
+                            Accounts.FirstOrDefault(x => x.Id == this.user.Id).Password = newpassTxtbx.Text;
                             datahandler.UpdateData(Accounts);
                             WelcomeLbl.Text = "haslo zmienione";
                             newpassTxtbx.Text = "";
@@ -64,7 +64,39 @@ namespace Cyberbezpieczenstwo
 
         private void DoSthBtn_Click(object sender, EventArgs e)
         {
-            WelcomeLbl.Text = "Robie cos";
+            bool isPL = this.user.PrintLocked;
+
+
+            if (isPL == false)
+            {
+                WelcomeLbl.Text = "Drukuje";
+            }
+            else
+            {
+                WelcomeLbl.Text = "Masz nałożone ograniczenie!";
+            }
+
+
+        }
+
+        private void textBox1_TextChanged_1(object sender, EventArgs e)
+        {
+            //string CText = VigenereCipher.DoStuff();
+            //textBox2_TextChanged.Text = CText;
+            
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if(textBox1.Text == user.CipherPass)
+            {
+                var dataHandler = new DataHandler();
+                var Accounts = dataHandler.GetAccounts();
+                user.PrintLocked = false;
+                user.CipherPass = "";
+                Accounts[Accounts.FindIndex(ac => ac.Id == user.Id)] = user;
+                dataHandler.UpdateData(Accounts);
+            }
         }
     }
 }

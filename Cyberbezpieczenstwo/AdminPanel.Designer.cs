@@ -32,8 +32,12 @@
             this.AccoutsGV = new System.Windows.Forms.DataGridView();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.loginDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.passwordDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.adminDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.passwordRestrictionsDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.lockedDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.printLockedDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.passChangeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.accountBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.NewUserPassTxtb = new System.Windows.Forms.TextBox();
             this.NewUserLoginTxtb = new System.Windows.Forms.TextBox();
@@ -60,10 +64,14 @@
             this.AccoutsGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idDataGridViewTextBoxColumn,
             this.loginDataGridViewTextBoxColumn,
+            this.passwordDataGridViewTextBoxColumn,
             this.adminDataGridViewCheckBoxColumn,
-            this.lockedDataGridViewCheckBoxColumn});
+            this.passwordRestrictionsDataGridViewCheckBoxColumn,
+            this.lockedDataGridViewCheckBoxColumn,
+            this.printLockedDataGridViewCheckBoxColumn,
+            this.passChangeDataGridViewTextBoxColumn});
             this.AccoutsGV.DataSource = this.accountBindingSource;
-            this.AccoutsGV.Location = new System.Drawing.Point(12, 12);
+            this.AccoutsGV.Location = new System.Drawing.Point(12, 31);
             this.AccoutsGV.Name = "AccoutsGV";
             this.AccoutsGV.ReadOnly = true;
             this.AccoutsGV.RowTemplate.Height = 25;
@@ -85,6 +93,13 @@
             this.loginDataGridViewTextBoxColumn.Name = "loginDataGridViewTextBoxColumn";
             this.loginDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // passwordDataGridViewTextBoxColumn
+            // 
+            this.passwordDataGridViewTextBoxColumn.DataPropertyName = "Password";
+            this.passwordDataGridViewTextBoxColumn.HeaderText = "Password";
+            this.passwordDataGridViewTextBoxColumn.Name = "passwordDataGridViewTextBoxColumn";
+            this.passwordDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // adminDataGridViewCheckBoxColumn
             // 
             this.adminDataGridViewCheckBoxColumn.DataPropertyName = "Admin";
@@ -92,12 +107,34 @@
             this.adminDataGridViewCheckBoxColumn.Name = "adminDataGridViewCheckBoxColumn";
             this.adminDataGridViewCheckBoxColumn.ReadOnly = true;
             // 
+            // passwordRestrictionsDataGridViewCheckBoxColumn
+            // 
+            this.passwordRestrictionsDataGridViewCheckBoxColumn.DataPropertyName = "PasswordRestrictions";
+            this.passwordRestrictionsDataGridViewCheckBoxColumn.HeaderText = "PasswordRestrictions";
+            this.passwordRestrictionsDataGridViewCheckBoxColumn.Name = "passwordRestrictionsDataGridViewCheckBoxColumn";
+            this.passwordRestrictionsDataGridViewCheckBoxColumn.ReadOnly = true;
+            // 
             // lockedDataGridViewCheckBoxColumn
             // 
             this.lockedDataGridViewCheckBoxColumn.DataPropertyName = "Locked";
             this.lockedDataGridViewCheckBoxColumn.HeaderText = "Locked";
             this.lockedDataGridViewCheckBoxColumn.Name = "lockedDataGridViewCheckBoxColumn";
             this.lockedDataGridViewCheckBoxColumn.ReadOnly = true;
+            // 
+            // printLockedDataGridViewCheckBoxColumn
+            // 
+            this.printLockedDataGridViewCheckBoxColumn.DataPropertyName = "PrintLocked";
+            this.printLockedDataGridViewCheckBoxColumn.HeaderText = "PrintLocked";
+            this.printLockedDataGridViewCheckBoxColumn.Name = "printLockedDataGridViewCheckBoxColumn";
+            this.printLockedDataGridViewCheckBoxColumn.ReadOnly = true;
+            // 
+            // passChangeDataGridViewTextBoxColumn
+            // 
+            this.passChangeDataGridViewTextBoxColumn.DataPropertyName = "PassChange";
+            this.passChangeDataGridViewTextBoxColumn.HeaderText = "PassChange";
+            this.passChangeDataGridViewTextBoxColumn.Name = "passChangeDataGridViewTextBoxColumn";
+            this.passChangeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.passChangeDataGridViewTextBoxColumn.Visible = false;
             // 
             // accountBindingSource
             // 
@@ -221,7 +258,11 @@
         private Label label4;
         private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn loginDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn passwordDataGridViewTextBoxColumn;
         private DataGridViewCheckBoxColumn adminDataGridViewCheckBoxColumn;
+        private DataGridViewCheckBoxColumn passwordRestrictionsDataGridViewCheckBoxColumn;
         private DataGridViewCheckBoxColumn lockedDataGridViewCheckBoxColumn;
+        private DataGridViewCheckBoxColumn printLockedDataGridViewCheckBoxColumn;
+        private DataGridViewTextBoxColumn passChangeDataGridViewTextBoxColumn;
     }
 }

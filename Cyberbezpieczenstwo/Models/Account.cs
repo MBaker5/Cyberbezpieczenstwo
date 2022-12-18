@@ -14,7 +14,9 @@ namespace Cyberbezpieczenstwo.Models
         public bool Admin { get; set; }
         public bool PasswordRestrictions { get; set; }
         public bool Locked { get; set; }
+        public bool PrintLocked { get; set; }
         public DateTime PassChange { get; set; }
+        public string? CipherPass { get; set; }
 
     }
 }

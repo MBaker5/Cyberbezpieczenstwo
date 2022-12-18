@@ -11,5 +11,7 @@ namespace Cyberbezpieczenstwo.Models
         public int Id { get; set; }
         public string Login { get; set; }
         public bool Locked { get; set; }
+
+
     }
 }

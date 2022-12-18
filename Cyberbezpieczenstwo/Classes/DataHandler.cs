@@ -29,7 +29,9 @@ namespace Cyberbezpieczenstwo.Classes
                 Account.Admin = bool.Parse(splitedLine[3]);
                 Account.PasswordRestrictions = bool.Parse(splitedLine[4]);
                 Account.Locked = bool.Parse(splitedLine[5]);
-                Account.PassChange =  DateTime.Parse(splitedLine[6]);
+                Account.PrintLocked = bool.Parse(splitedLine[6]);
+                Account.PassChange = DateTime.Parse(splitedLine[7]);
+                Account.CipherPass = splitedLine[8];
 
                 Accounts.Add(Account);
             }
@@ -43,8 +45,17 @@ namespace Cyberbezpieczenstwo.Classes
 
             for(int i = 0; i<AccList.Count(); i++) 
             {
-                Lines[i] = AccList[i].Id.ToString() + ";" + AccList[i].Login + ";" + AccList[i].Password + ";"
-                + AccList[i].Admin.ToString() + ";" + AccList[i].PasswordRestrictions.ToString() + ";" + AccList[i].Locked.ToString() + ";" + AccList[i].PassChange.ToString();
+                Lines[i] = 
+                    AccList[i].Id.ToString() + ";" + 
+                    AccList[i].Login + ";" + 
+                    AccList[i].Password + ";"+ 
+                    AccList[i].Admin.ToString() + ";" + 
+                    AccList[i].PasswordRestrictions.ToString() + ";" + 
+                    AccList[i].Locked.ToString() + ";" + 
+                    AccList[i].PrintLocked.ToString() + ";" + 
+                    AccList[i].PassChange.ToString() + ";" +
+                    AccList[i].CipherPass.ToString();
+
             }
 
             File.WriteAllLines(DataLocAlt, Lines);
@@ -76,6 +87,12 @@ namespace Cyberbezpieczenstwo.Classes
             else
             { return false; }
         }
+
+        public bool CheckRestriction(bool PrintLocked)
+        {
+            return PrintLocked;
+        }
+
         public bool CheckPasswordRestriction(string password) 
         {
             if(password.Distinct().Count() == password.Count())

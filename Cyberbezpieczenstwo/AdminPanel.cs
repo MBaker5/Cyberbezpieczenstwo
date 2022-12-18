@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -31,33 +32,33 @@ namespace Cyberbezpieczenstwo
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            /*
-            if(textBox4.Text== admin.Password) 
-            {
-                var UpdatedAccounts = new List<Account>();
-                for (int i = 0; i < AccoutsGV.RowCount; i++)
-                {
-                    var Account = new Account();
+        //private void button1_Click(object sender, EventArgs e)
+        //{
+        //    /*
+        //    if(textBox4.Text== admin.Password) 
+        //    {
+        //        var UpdatedAccounts = new List<Account>();
+        //        for (int i = 0; i < AccoutsGV.RowCount; i++)
+        //        {
+        //            var Account = new Account();
 
-                    Account.Id = int.Parse(AccoutsGV.Rows[i].Cells[0].Value.ToString());
-                    Account.Login = AccoutsGV.Rows[i].Cells[1].Value.ToString();
-                    Account.Password = AccoutsGV.Rows[i].Cells[2].Value.ToString();
-                    Account.Admin = bool.Parse(AccoutsGV.Rows[i].Cells[3].Value.ToString());
-                    Account.PasswordRestriction = bool.Parse(AccoutsGV.Rows[i].Cells[4].Value.ToString());
-                    Account.Locked = bool.Parse(AccoutsGV.Rows[i].Cells[5].Value.ToString());
-                    Account.PassChange = DateTime.Parse(AccoutsGV.Rows[i].Cells[5].Value.ToString());
-                    UpdatedAccounts.Add(Account);
-                }
-                label4.Text = "zapisano zmiany";
-                dataHandler.UpdateData(UpdatedAccounts);
-            }
-            else 
-            { label4.Text = "podaj poprawne hasło by zapisac zmiany"; }
+        //            Account.Id = int.Parse(AccoutsGV.Rows[i].Cells[0].Value.ToString());
+        //            Account.Login = AccoutsGV.Rows[i].Cells[1].Value.ToString();
+        //            Account.Password = AccoutsGV.Rows[i].Cells[2].Value.ToString();
+        //            Account.Admin = bool.Parse(AccoutsGV.Rows[i].Cells[3].Value.ToString());
+        //            Account.PasswordRestriction = bool.Parse(AccoutsGV.Rows[i].Cells[4].Value.ToString());
+        //            Account.Locked = bool.Parse(AccoutsGV.Rows[i].Cells[5].Value.ToString());
+        //            Account.PassChange = DateTime.Parse(AccoutsGV.Rows[i].Cells[5].Value.ToString());
+        //            UpdatedAccounts.Add(Account);
+        //        }
+        //        label4.Text = "zapisano zmiany";
+        //        dataHandler.UpdateData(UpdatedAccounts);
+        //    }
+        //    else 
+        //    { label4.Text = "podaj poprawne hasło by zapisac zmiany"; }
             
-           */
-        }
+        //   */
+        //}
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -74,6 +75,7 @@ namespace Cyberbezpieczenstwo
                     newAccount.Admin = false;
                     newAccount.PasswordRestrictions = false;
                     newAccount.Locked = false;
+                    newAccount.PrintLocked = false;
                     newAccount.PassChange = DateTime.Now;
                     Accounts.Add(newAccount);
                     dataHandler.UpdateData(Accounts);
@@ -91,7 +93,8 @@ namespace Cyberbezpieczenstwo
 
         private void button3_Click(object sender, EventArgs e)
         {
-            EditUser EU = new EditUser(accounts.Where(x=>x.Id == int.Parse(EditUserIDTxtb.Text)).First(),admin);
+            
+            EditUser EU = new(accounts.Where(x=>x.Id == int.Parse(EditUserIDTxtb.Text)).First(),admin);
             EU.Location = this.Location;
             EU.StartPosition = FormStartPosition.Manual;
             EU.FormClosing += delegate { this.Show(); this.accounts = dataHandler.GetAccounts(); this.AccoutsGV.DataSource = this.accounts; };

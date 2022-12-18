@@ -1,5 +1,6 @@
 using Cyberbezpieczenstwo.Classes;
 
+
 namespace Cyberbezpieczenstwo
 {
     public partial class MainPage : Form
@@ -21,6 +22,7 @@ namespace Cyberbezpieczenstwo
                 Lockout = true;
                 LockoutEnd = DateTime.Now.AddMinutes(1);
                 BadLoginCounter = 0;
+                
                 return;
             }
             else
@@ -33,6 +35,7 @@ namespace Cyberbezpieczenstwo
         public MainPage()
         {
             InitializeComponent();
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
