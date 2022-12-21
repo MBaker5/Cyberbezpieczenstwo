@@ -36,7 +36,6 @@
             this.adminDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.passwordRestrictionsDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.lockedDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.printLockedDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.passChangeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.accountBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.NewUserPassTxtb = new System.Windows.Forms.TextBox();
@@ -69,7 +68,6 @@
             this.adminDataGridViewCheckBoxColumn,
             this.passwordRestrictionsDataGridViewCheckBoxColumn,
             this.lockedDataGridViewCheckBoxColumn,
-            this.printLockedDataGridViewCheckBoxColumn,
             this.passChangeDataGridViewTextBoxColumn});
             this.AccoutsGV.DataSource = this.accountBindingSource;
             this.AccoutsGV.Location = new System.Drawing.Point(12, 31);
@@ -122,13 +120,6 @@
             this.lockedDataGridViewCheckBoxColumn.Name = "lockedDataGridViewCheckBoxColumn";
             this.lockedDataGridViewCheckBoxColumn.ReadOnly = true;
             // 
-            // printLockedDataGridViewCheckBoxColumn
-            // 
-            this.printLockedDataGridViewCheckBoxColumn.DataPropertyName = "PrintLocked";
-            this.printLockedDataGridViewCheckBoxColumn.HeaderText = "PrintLocked";
-            this.printLockedDataGridViewCheckBoxColumn.Name = "printLockedDataGridViewCheckBoxColumn";
-            this.printLockedDataGridViewCheckBoxColumn.ReadOnly = true;
-            // 
             // passChangeDataGridViewTextBoxColumn
             // 
             this.passChangeDataGridViewTextBoxColumn.DataPropertyName = "PassChange";
@@ -164,7 +155,7 @@
             this.AddNewUserBtn.TabIndex = 4;
             this.AddNewUserBtn.Text = "Dodaj nowego uzytkownika";
             this.AddNewUserBtn.UseVisualStyleBackColor = true;
-            this.AddNewUserBtn.Click += new System.EventHandler(this.button2_Click);
+            this.AddNewUserBtn.Click += new System.EventHandler(this.AddNewUserBtn_Click);
             // 
             // NewUserPassLbl
             // 
@@ -223,12 +214,11 @@
             // GenOneTimePassChckBX
             // 
             this.GenOneTimePassChckBX.AutoSize = true;
-            this.GenOneTimePassChckBX.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.GenOneTimePassChckBX.Location = new System.Drawing.Point(12, 350);
+            this.GenOneTimePassChckBX.Location = new System.Drawing.Point(12, 358);
             this.GenOneTimePassChckBX.Name = "GenOneTimePassChckBX";
-            this.GenOneTimePassChckBX.Size = new System.Drawing.Size(219, 24);
+            this.GenOneTimePassChckBX.Size = new System.Drawing.Size(209, 19);
             this.GenOneTimePassChckBX.TabIndex = 11;
-            this.GenOneTimePassChckBX.Text = "Wygeneruj hasło jednorazwe";
+            this.GenOneTimePassChckBX.Text = "Generowanie jednorazowego hasła";
             this.GenOneTimePassChckBX.UseVisualStyleBackColor = true;
             // 
             // AdminPanel
@@ -277,5 +267,6 @@
         private DataGridViewCheckBoxColumn lockedDataGridViewCheckBoxColumn;
         private DataGridViewCheckBoxColumn printLockedDataGridViewCheckBoxColumn;
         private DataGridViewTextBoxColumn passChangeDataGridViewTextBoxColumn;
+        private CheckBox GenOneTimePassChckBX;
     }
 }

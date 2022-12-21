@@ -15,7 +15,7 @@ namespace Cyberbezpieczenstwo.Classes
 
       public int fjk(int a, int x) 
       {
-            return (int)(a * Math.Sin(x));
+            return (int)(a * Math.Log(x));
       }
 
 

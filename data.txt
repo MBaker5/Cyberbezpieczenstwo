@@ -2,3 +2,6 @@
 2;OtherUser;NewPass;False;False;False;False;29.12.2023 20:06:41;
 5;Bobiras;H1H1H1H3;False;False;False;False;22.10.2022 22:53:57;
 6;Test;Aa12;False;False;False;False;09.09.2024 21:20:00;
+7;Dawid;0,30492666725598117;False;False;False;False;21.12.2022 15:59:14;
+8;Piotrek;0,40302065170738915;False;False;False;False;21.12.2022 16:22:49;
+9;Test2;0,29277581592443586;False;False;False;False;21.12.2022 16:23:47;

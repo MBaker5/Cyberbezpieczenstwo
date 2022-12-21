@@ -90,3 +90,13 @@
 1;Admin;Zmieniono haslo uzytkownika id:2 login:OtherUser;18.12.2022 20:06:41
 1;Admin;Uzytkownik id:2 login:OtherUser nie ma ograniczenia;18.12.2022 20:06:41
 2;OtherUser;Logowanie;18.12.2022 20:06:54
+1;Admin;Logowanie;21.12.2022 15:23:42
+1;Admin;Logowanie;21.12.2022 15:49:57
+1;Admin;Logowanie;21.12.2022 15:52:49
+1;Admin;Logowanie;21.12.2022 15:54:37
+1;Admin;Logowanie;21.12.2022 15:59:08
+1;Admin;Dodano uzytkownika id:7 login:Dawid;21.12.2022 15:59:14
+1;Admin;Logowanie;21.12.2022 16:22:37
+1;Admin;Dodano uzytkownika id:8 login:Piotrek;21.12.2022 16:22:49
+1;Admin;Logowanie;21.12.2022 16:23:36
+1;Admin;Dodano uzytkownika id:9 login:Test2;21.12.2022 16:23:47

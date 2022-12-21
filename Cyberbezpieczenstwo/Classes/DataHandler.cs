@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Net.WebRequestMethods;
 
 namespace Cyberbezpieczenstwo.Classes
 {
@@ -15,7 +16,7 @@ namespace Cyberbezpieczenstwo.Classes
         public List<Account> GetAccounts() 
         {
             var lines = new List<string>();
-            lines = File.ReadAllLines(DataLocAlt).ToList();
+            lines = System.IO.File.ReadAllLines(DataLocAlt).ToList();
             var Accounts = new List<Account>();
            
             foreach(var line in lines) 
@@ -58,7 +59,7 @@ namespace Cyberbezpieczenstwo.Classes
 
             }
 
-            File.WriteAllLines(DataLocAlt, Lines);
+            System.IO.File.WriteAllLines(DataLocAlt, Lines);
         }
 
         public bool CheckNewLogin(string login, string loginold)
