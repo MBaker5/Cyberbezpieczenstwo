@@ -20,5 +20,30 @@ namespace Cyberbezpieczenstwo
             InitializeComponent();
             CaptchapicBox.Image = cHandler.GetImg();
         }
+
+        public void button1_Click(object sender, EventArgs e)
+        {
+            if (Check() == true)
+            {
+               this.Close();
+            }
+            else 
+            {
+                CaptchapicBox.Image = cHandler.GetImg();
+            }
+        }
+
+        public bool Check () 
+        {
+            int answer = Int32.Parse(textBox4.Text);
+            if (cHandler.CheckAnwser(textBox2.Text, answer) == true)
+            {
+                return true;
+            }
+            else return false;
+        }
+        
+
+        
     }
 }

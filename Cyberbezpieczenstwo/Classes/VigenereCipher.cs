@@ -9,18 +9,6 @@ namespace Cyberbezpieczenstwo.Classes
 {
     internal class VigenereCipher
     {
-        
-
-        //public static string DoStuff()
-        //{
-            
-        //    //string randomText = RandomProvider.CreateString(kLenght);
-        //    //string randomKey = RandomProvider.CreateString(kLenght);
-        //    //string cipherText = Encipher(randomText, randomKey); //TODO: random
-        //    //string plainText = Decipher(cipherText, randomKey);
-        //    return cipherText;
-        //}
-
         private static string Encipher(object text, string randomKey)
         {
             throw new NotImplementedException();
@@ -72,11 +60,6 @@ namespace Cyberbezpieczenstwo.Classes
             return Cipher(input, key, false);
         }
 
-        //public bool IsRestrictionEnabled()
-        //{
-        //    //EditUser.ControlCollection.Equals(IsRestrictionEnabled)
-            
-        //    return false;
-        //}
+       
     }
 }

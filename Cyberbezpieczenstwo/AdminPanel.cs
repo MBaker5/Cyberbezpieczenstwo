@@ -97,7 +97,7 @@ namespace Cyberbezpieczenstwo
                     newAccount.Login = NewUserLoginTxtb.Text;
                     if (GenOneTimePassChckBX.Checked)
                     {
-                        newAccount.Password = dataHandler.CalculateOneTimePassword(newAccount.Login.Length).ToString();
+                        newAccount.Password = dataHandler.CalculateOneTimePassword(newAccount.Login.Length).ToString().Trim(',');
                     }
                     else
                     {

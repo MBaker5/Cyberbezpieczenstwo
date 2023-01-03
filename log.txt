@@ -100,3 +100,25 @@
 1;Admin;Dodano uzytkownika id:8 login:Piotrek;21.12.2022 16:22:49
 1;Admin;Logowanie;21.12.2022 16:23:36
 1;Admin;Dodano uzytkownika id:9 login:Test2;21.12.2022 16:23:47
+1;Admin;Logowanie;21.12.2022 22:22:59
+1;Admin;Logowanie;21.12.2022 22:24:20
+1;Admin;Dodano uzytkownika id:10 login:Jakub;21.12.2022 22:24:28
+1;Admin;Logowanie;21.12.2022 22:28:30
+1;Admin;Dodano uzytkownika id:11 login:Dawidek;21.12.2022 22:28:45
+1;Admin;Logowanie;03.01.2023 16:16:31
+1;Admin;Logowanie;03.01.2023 16:17:31
+1;Admin;Nałożono ograniczenie na użytkownika id:2 login:OtherUser;03.01.2023 16:19:22
+1;Admin;Logowanie;03.01.2023 16:21:23
+1;Admin;Nałożono ograniczenie na użytkownika id:2 login:OtherUser;03.01.2023 16:21:29
+1;Admin;Edytowano uzytkownika id:2 login:OtherUser;03.01.2023 16:21:48
+1;Admin;Zmieniono haslo uzytkownika id:2 login:OtherUser;03.01.2023 16:21:48
+1;Admin;Uzytkownik id:2 login:OtherUser nie ma ograniczenia;03.01.2023 16:21:48
+1;Admin;Edytowano uzytkownika id:2 login:OtherUser;03.01.2023 16:21:50
+1;Admin;Zmieniono haslo uzytkownika id:2 login:OtherUser;03.01.2023 16:21:50
+1;Admin;Uzytkownik id:2 login:OtherUser nie ma ograniczenia;03.01.2023 16:21:50
+2;OtherUser;Logowanie;03.01.2023 16:22:11
+1;Admin;Logowanie;03.01.2023 18:08:37
+1;Admin;Logowanie;03.01.2023 18:10:02
+1;Admin;Logowanie;03.01.2023 18:13:51
+1;Admin;Logowanie;03.01.2023 18:35:20
+1;Admin;Logowanie;03.01.2023 18:44:58

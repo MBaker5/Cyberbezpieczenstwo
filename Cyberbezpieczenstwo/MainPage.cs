@@ -51,26 +51,32 @@ namespace Cyberbezpieczenstwo
                     if (CurAccount.First().Locked) { KomunikatLbl.Text = "To konto jest zablokowane!"; }
                     else
                     {
-                        var LogHandler = new LogHandler();
-                        LogHandler.Log(CurAccount.First(), "Logowanie");
 
-                        if (CurAccount.First().Admin)
+                        CaptchaForm CP = new CaptchaForm();
+                        CP.ShowDialog();
+                 
+                        if (CP.Check() == true)
                         {
-                            AdminPage AP = new AdminPage(CurAccount.First());
-                            AP.Location = this.Location;
-                            AP.StartPosition = FormStartPosition.Manual;
-                            AP.FormClosing += delegate { this.Show(); };
-                            AP.Show();
-                        }
-                        else
-                        {
-                            UserPanel UP = new UserPanel(CurAccount.First());
-                            UP.Location = this.Location;
-                            UP.StartPosition = FormStartPosition.Manual;
-                            UP.FormClosing += delegate { this.Show(); };
-                            UP.Show();
-                        }
+                            var LogHandler = new LogHandler();
+                            LogHandler.Log(CurAccount.First(), "Logowanie");
 
+                            if (CurAccount.First().Admin)
+                            {
+                                AdminPage AP = new AdminPage(CurAccount.First());
+                                AP.Location = this.Location;
+                                AP.StartPosition = FormStartPosition.Manual;
+                                AP.FormClosing += delegate { this.Show(); };
+                                AP.Show();
+                            }
+                            else
+                            {
+                                UserPanel UP = new UserPanel(CurAccount.First());
+                                UP.Location = this.Location;
+                                UP.StartPosition = FormStartPosition.Manual;
+                                UP.FormClosing += delegate { this.Show(); };
+                                UP.Show();
+                            }
+                        }
                         this.Hide();
                         passwordTxtbx.Text = "";
                         LoginTxtbx.Text = "";
