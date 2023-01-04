@@ -62,6 +62,7 @@
             this.DoStuffBtn.TabIndex = 2;
             this.DoStuffBtn.Text = "Do Stuff";
             this.DoStuffBtn.UseVisualStyleBackColor = true;
+            this.DoStuffBtn.Visible = false;
             // 
             // WelcomeLbl
             // 

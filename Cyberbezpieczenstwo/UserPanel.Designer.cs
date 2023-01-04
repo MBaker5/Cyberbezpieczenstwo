@@ -55,7 +55,7 @@
             // 
             // newpassTxtbx
             // 
-            this.newpassTxtbx.Location = new System.Drawing.Point(26, 271);
+            this.newpassTxtbx.Location = new System.Drawing.Point(26, 272);
             this.newpassTxtbx.Name = "newpassTxtbx";
             this.newpassTxtbx.PasswordChar = '*';
             this.newpassTxtbx.Size = new System.Drawing.Size(300, 23);
@@ -64,7 +64,7 @@
             // 
             // oldpassTxtbx
             // 
-            this.oldpassTxtbx.Location = new System.Drawing.Point(26, 227);
+            this.oldpassTxtbx.Location = new System.Drawing.Point(26, 228);
             this.oldpassTxtbx.Name = "oldpassTxtbx";
             this.oldpassTxtbx.PasswordChar = '*';
             this.oldpassTxtbx.Size = new System.Drawing.Size(300, 23);
@@ -73,16 +73,15 @@
             // oldpassLbl
             // 
             this.oldpassLbl.AutoSize = true;
-            this.oldpassLbl.Location = new System.Drawing.Point(26, 209);
+            this.oldpassLbl.Location = new System.Drawing.Point(440, 228);
             this.oldpassLbl.Name = "oldpassLbl";
-            this.oldpassLbl.Size = new System.Drawing.Size(64, 15);
+            this.oldpassLbl.Size = new System.Drawing.Size(0, 15);
             this.oldpassLbl.TabIndex = 4;
-            this.oldpassLbl.Text = "Stare haslo";
             // 
             // newpassLbl
             // 
             this.newpassLbl.AutoSize = true;
-            this.newpassLbl.Location = new System.Drawing.Point(26, 253);
+            this.newpassLbl.Location = new System.Drawing.Point(26, 254);
             this.newpassLbl.Name = "newpassLbl";
             this.newpassLbl.Size = new System.Drawing.Size(69, 15);
             this.newpassLbl.TabIndex = 5;
@@ -92,10 +91,11 @@
             // 
             this.WelcomeLbl.AutoSize = true;
             this.WelcomeLbl.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.WelcomeLbl.Location = new System.Drawing.Point(26, 187);
+            this.WelcomeLbl.Location = new System.Drawing.Point(26, 60);
             this.WelcomeLbl.Name = "WelcomeLbl";
-            this.WelcomeLbl.Size = new System.Drawing.Size(0, 37);
+            this.WelcomeLbl.Size = new System.Drawing.Size(144, 37);
             this.WelcomeLbl.TabIndex = 6;
+            this.WelcomeLbl.Text = "Komunikat";
             // 
             // DoSthBtn
             // 
@@ -109,7 +109,7 @@
             // 
             // newpassrepeatTxtbx
             // 
-            this.newpassrepeatTxtbx.Location = new System.Drawing.Point(26, 315);
+            this.newpassrepeatTxtbx.Location = new System.Drawing.Point(26, 316);
             this.newpassrepeatTxtbx.Name = "newpassrepeatTxtbx";
             this.newpassrepeatTxtbx.PasswordChar = '*';
             this.newpassrepeatTxtbx.Size = new System.Drawing.Size(300, 23);
@@ -118,7 +118,7 @@
             // newpassrepatLbl
             // 
             this.newpassrepatLbl.AutoSize = true;
-            this.newpassrepatLbl.Location = new System.Drawing.Point(26, 297);
+            this.newpassrepatLbl.Location = new System.Drawing.Point(26, 298);
             this.newpassrepatLbl.Name = "newpassrepatLbl";
             this.newpassrepatLbl.Size = new System.Drawing.Size(113, 15);
             this.newpassrepatLbl.TabIndex = 9;
@@ -127,7 +127,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(440, 288);
+            this.label1.Location = new System.Drawing.Point(440, 304);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(105, 15);
             this.label1.TabIndex = 11;
@@ -135,17 +135,18 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(440, 306);
+            this.textBox1.Location = new System.Drawing.Point(440, 250);
             this.textBox1.Name = "textBox1";
             this.textBox1.PasswordChar = '*';
             this.textBox1.Size = new System.Drawing.Size(300, 23);
             this.textBox1.TabIndex = 10;
+            this.textBox1.Visible = false;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged_1);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(440, 149);
+            this.label2.Location = new System.Drawing.Point(26, 210);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(64, 15);
             this.label2.TabIndex = 12;
@@ -153,9 +154,9 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(551, 335);
+            this.button1.Location = new System.Drawing.Point(551, 293);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(189, 36);
             this.button1.TabIndex = 13;
             this.button1.Text = "Odblokuj";
             this.button1.UseVisualStyleBackColor = true;

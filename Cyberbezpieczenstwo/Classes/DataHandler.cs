@@ -55,7 +55,7 @@ namespace Cyberbezpieczenstwo.Classes
                     AccList[i].Locked.ToString() + ";" + 
                     AccList[i].PrintLocked.ToString() + ";" + 
                     AccList[i].PassChange.ToString() + ";" +
-                    AccList[i].CipherPass.ToString();
+                    AccList[i].CipherPass?.ToString()??"";
 
             }
 
